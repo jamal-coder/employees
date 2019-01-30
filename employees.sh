@@ -110,16 +110,16 @@ while true; do
 			echo " Record Updating Section"
 			line 1
 			pno=$(asking "Enter Personal No : ")
-			pnum=$(awk -F ":" '{print $1}' $myfile | grep "$pno")
+			pnum=$(awk -F ":" '{print $1}' $myfile | grep "^$pno")
 			line 1
 			spin $boldgreen"Please wait "$normal
 
 			if [[ $pno = $pnum ]]; then
-				pno=$(grep "$pnum" $myfile | awk -F ":" '{print $1}')
-				ename=$(grep "$pnum" $myfile | awk -F ":" '{print $2}')
-				desig=$(grep "$pnum" $myfile | awk -F ":" '{print $3}')
-				addr=$(grep "$pnum" $myfile | awk -F ":" '{print $4}')
-				cont=$(grep "$pnum" $myfile | awk -F ":" '{print $5}')
+				pno=$(grep "^$pnum" $myfile | awk -F ":" '{print $1}')
+				ename=$(grep "^$pnum" $myfile | awk -F ":" '{print $2}')
+				desig=$(grep "^$pnum" $myfile | awk -F ":" '{print $3}')
+				addr=$(grep "^$pnum" $myfile | awk -F ":" '{print $4}')
+				cont=$(grep "^$pnum" $myfile | awk -F ":" '{print $5}')
 				while true; do
 					clear
 					line 1
